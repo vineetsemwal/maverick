@@ -9,28 +9,20 @@ public class HolidayPlanner {
     private BusType busType;
     private LocalDate startDate;
     private LocalDate endDate;
-
-
-
     public LocalTime getLunchTime() {
         return lunchTime;
     }
-
       public LocalTime getDinnerTime() {
         return dinnerTime;
     }
-
 
     public BusType getBusType() {
         return busType;
     }
 
-
     public LocalDate getStartDate() {
         return startDate;
     }
-
-
     public LocalDate getEndDate() {
         return endDate;
     }
