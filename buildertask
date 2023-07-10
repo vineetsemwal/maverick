@@ -1,0 +1,13 @@
+Create a http response at run time, Use builder pattern so that user of your class can comfortably set the values he want,
+default statusCode value if user is not setting is 200
+
+class CustomHttpResponse<T>{
+
+private int statusCode;
+
+private T responseBody;
+
+private String mediaType;
+
+
+}
