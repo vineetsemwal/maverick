@@ -7,6 +7,7 @@ Use adapter pattern so that NewClient is also supported
 Use Map<Long, Product> in Old service implementation
 
 Product{
+
 long id
 
 String name
