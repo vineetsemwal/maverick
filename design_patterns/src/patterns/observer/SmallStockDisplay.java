@@ -8,6 +8,6 @@ class SmallStockDisplay implements IStockDisplay, IStockObserver {
 
     @Override
     public void display(Stock stock) {
-        System.out.println("Stock value " + stock);
+        System.out.println("SmallStockdisplay value " + stock);
     }
 }
