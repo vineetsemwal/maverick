@@ -20,3 +20,11 @@ section > h1{
 section+h1{
     background-color: blue;
 }
+
+.round-box{
+    background-color: blue;
+    border-radius: 20px;
+    width:600px;
+    height: 200px;
+    padding: 50px;
+}
