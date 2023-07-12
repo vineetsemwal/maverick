@@ -1,0 +1,11 @@
+.redbox{
+    background-color: red;
+    margin: 50px;
+    padding: 40px;    
+}
+
+.yellowbox{
+    background-color: yellow;
+    margin: 50px;
+    padding: 40px;    
+}
