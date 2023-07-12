@@ -1,0 +1,15 @@
+.box{
+    background-color: blue;
+    color: #fff;
+    width: 32%;
+    float: left;
+    height: 150px;
+    margin:.5%;
+    
+}
+
+@media all and (max-width: 769px){
+.box{
+width: 100%;
+}
+}

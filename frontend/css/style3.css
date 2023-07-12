@@ -23,8 +23,13 @@ section+h1{
 
 .round-box{
     background-color: blue;
+    color: #fff;
     border-radius: 20px;
     width:600px;
     height: 200px;
     padding: 50px;
+}
+
+.shadowtext{
+    text-shadow: 2px 3px blue;
 }
