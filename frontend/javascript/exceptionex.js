@@ -11,7 +11,7 @@ function addUserClient() {
     var result = add(1);
     console.log("result=" + result);
   } catch (err) {
-    console.log("exception caught="+err);
+    console.log("exception caught=",err);
     
   }
 }
