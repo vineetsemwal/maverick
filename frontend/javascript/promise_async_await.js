@@ -14,8 +14,12 @@ function isEven(num) {
   }
   
 async   function useIsEven() {
+    try{
     const result=await isEven(10);
     console.log("result="+result);
+    }catch(err){
+        console.log("error is "+err);
+    }
   }
   useIsEven();
   
