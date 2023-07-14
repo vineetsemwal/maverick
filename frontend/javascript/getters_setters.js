@@ -1,4 +1,4 @@
-class Product {
+class ProductDemo {
     constructor(id, name) {
       this._id = id;
       this._name = name;
@@ -14,7 +14,7 @@ class Product {
     }
   }
 
-  const product=new Product(1,"samsung");
+  const product=new ProductDemo(1,"samsung");
   //setter method will be called
   product.id=20;
  // getter method will be called

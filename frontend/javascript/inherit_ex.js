@@ -14,7 +14,7 @@ class Phone extends Product {
   }
 
   display() {
-    console.log("os=" + this.os + "-" + super.id + "-" + super.name);
+    console.log("os=" + this.os + "-" + this.id + "-" + this.name);
   }
 }
 const product = new Phone(1, "galaxy", "android");
