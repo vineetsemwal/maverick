@@ -1,3 +1,8 @@
+/*
+this when not in function or  method ==global
+this inside method will give current object
+this when used inside function will give you undefined
+*/
 class Product{
     constructor(name){
         this.name=name;
