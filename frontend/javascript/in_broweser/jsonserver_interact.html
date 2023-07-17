@@ -24,12 +24,19 @@
     <script type="application/javascript">
       console.log("before load event attached");
 
+      const url = "http://localhost:3000/users";
       const user = {};
 
-      function submitHandler() {
+      async function  submitHandler() {
         event.preventDefault();
         const form = document.getElementById("myform");
         const displayer = document.getElementById("display");
+        const promise =axios.post(url,user);
+        const response=await promise;
+        const addedUser=await response.data;
+        const node=document.createElement("li");             
+        displayer.appendChild(node);
+        node.innerText=user.username+"-"+user.age;    
       }
 
       function usernameBlurHandler() {
@@ -42,7 +49,6 @@
         user.age = age.value;
       }
 
-      const url = "http://localhost:3000/users";
       async function fetchUsersAndDisplay() {
         try {
           console.log("inside fetchUsersAndDisplay");
@@ -54,7 +60,7 @@
           const displayer = document.getElementById("display");
           console.log("displayer", displayer);
           for (let iteratedUser of users) {
-            const liHtml = `${iteratedUser.username}, ${iteratedUser.age}`+"1";
+            const liHtml = `${iteratedUser.username}, ${iteratedUser.age}`;
             console.log("iterated user date li="+liHtml);
             const node=document.createElement("li");             
             displayer.appendChild(node);
