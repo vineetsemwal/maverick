@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+
+  <body>
+    <h1>Click button to change data</h1>
+    <form id="myform">
+      <label for="username">Username</label>
+      <input id="username" name="username" />
+
+      <br />
+      <label for="age">Age</label>
+      <input id="age" name="age" />
+
+      <br />
+      <button id="btn" type="submit">Click me</button>
+    </form>
+
+    <ul id="display"></ul>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
+      type="application/javascript"></script>
+    <script type="application/javascript">
+      console.log("before load event attached");
+
+      const user = {};
+
+      function submitHandler() {
+        event.preventDefault();
+        const form = document.getElementById("myform");
+        const displayer = document.getElementById("display");
+      }
+
+      function usernameBlurHandler() {
+        const username = document.getElementById("username");
+        user.username = username.value;
+      }
+
+      function ageBlurHandler() {
+        const age = document.getElementById("age");
+        user.age = age.value;
+      }
+
+      const url = "http://localhost:3000/users";
+      async function fetchUsersAndDisplay() {
+        try {
+          console.log("inside fetchUsersAndDisplay");
+          console.log("url=" + url);
+          let response = await axios.get(url);
+          let users = await response.data;
+          console.log("users=", users);
+          console.log("fetched result=" + users);
+          const displayer = document.getElementById("display");
+          console.log("displayer", displayer);
+          for (let iteratedUser of users) {
+            const liHtml = `${iteratedUser.username}, ${iteratedUser.age}`+"1";
+            console.log("iterated user date li="+liHtml);
+            const node=document.createElement("li");             
+            displayer.appendChild(node);
+            node.innerText=liHtml;
+            
+          }
+        } catch (err) {
+          console.log("err is " + err);
+        }
+      }
+
+      function domReadyHandler() {
+        console.log("after dom loaded");
+        const form = document.getElementById("myform");
+        form.addEventListener("submit", submitHandler);
+        const username = document.getElementById("username");
+        username.addEventListener("blur", usernameBlurHandler);
+        const age = document.getElementById("age");
+        age.addEventListener("blur", ageBlurHandler);
+        fetchUsersAndDisplay();
+      }
+
+      window.addEventListener("DOMContentLoaded", domReadyHandler);
+      console.log("after load event attached");
+      console.log("click handler attached");
+    </script>
+  </body>
+</html>
