@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="application/javascript">
+      console.log("before load event attached");
+      function parentClickHandler() {
+        console.log("inside parent click Handler");
+      }
+      function childClickHandler(){
+        console.log("inside Child click Handler");
+      }
+
+      function domReadyHandler() {
+        const child = document.getElementById("child");
+        const parent = document.getElementById("parent");
+        console.log("after dom loaded");
+        child.addEventListener("click", childClickHandler);
+        parent.addEventListener("click",parentClickHandler);
+ 
+    }
+
+      window.addEventListener("DOMContentLoaded", domReadyHandler);
+      console.log("after load event attached");
+      console.log("click handler attached");
+    </script>
+  </head>
+
+  <body>
+    <h1>Click button to change data</h1>
+    <div id="parent">
+      <h3>Parent</h3>
+
+    <button id="child">Child</button>
+
+    </div>
+  </body>
+</html>

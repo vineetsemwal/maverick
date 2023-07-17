@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="application/javascript">
+      console.log("before load event attached");
+      function clickHandler() {
+        const displayer = document.getElementById("display");
+        console.log("inside click handler");
+        const data = "<h1>Hello World !</h1>";
+        displayer.innerHTML = data;
+      }
+
+      function domReadyHandler() {
+        const btn = document.getElementById("btn");
+        const displayer = document.getElementById("display");
+        console.log("after dom loaded");
+        btn.addEventListener("click", clickHandler);
+      }
+
+      window.addEventListener("DOMContentLoaded", domReadyHandler);
+      console.log("after load event attached");
+      console.log("click handler attached");
+    </script>
+  </head>
+
+  <body>
+    <h1>Click button to change data</h1>
+    <div id="display">
+      <h1>Old Data</h1>
+    </div>
+
+    <button id="btn">Click me</button>
+  </body>
+</html>
