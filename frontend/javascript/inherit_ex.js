@@ -14,6 +14,7 @@ class Phone extends Product {
   }
 
   display() {
+    console.log("proto",this);
     console.log("os=" + this.os + "-" + this.id + "-" + this.name);
   }
 }

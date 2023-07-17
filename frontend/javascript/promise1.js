@@ -1,3 +1,8 @@
+/**
+ * 
+ * @param {*} num 
+ * @returns Promise
+ */
 function isEven(num) {
   const executor = (resolve, reject) => {
     if (!num) {
@@ -14,7 +19,7 @@ function isEven(num) {
 }
 
 function useIsEven() {
-  const promise = isEven(10);
+  const promise = isEven();
   console.log("after method call");
   const successHandlerCallback = (result) => {
     console.log("number even=" + result);
@@ -22,7 +27,8 @@ function useIsEven() {
   const errCallback = (err) => {
     console.log("error received", err);
   };
-  promise.then(successHandlerCallback).catch(errCallback);
+  promise.then(successHandlerCallback)
+  .catch(errCallback);
   console.log("after adding handlers");
 }
 useIsEven();
