@@ -3,18 +3,18 @@
   <head>
     <script type="application/javascript">
       console.log("before load event attached");
-      function clickHandler() {
+      function keyupHandler() {
         const displayer = document.getElementById("display");
-        console.log("inside click handler");
-        const data = "<h1>Hello World !</h1>";
-        displayer.innerHTML = data;
+        const textfield = document.getElementById("username");
+        console.log("inside key handler");
+        displayer.innerHTML =`<h1> ${textfield.value} </h1>`;
       }
 
       function domReadyHandler() {
-        const btn = document.getElementById("btn");
+        const textfield = document.getElementById("username");
         const displayer = document.getElementById("display");
         console.log("after dom loaded");
-        btn.addEventListener("click", clickHandler);
+        textfield.addEventListener("keyup", keyupHandler);
       }
 
       window.addEventListener("DOMContentLoaded", domReadyHandler);
@@ -24,11 +24,9 @@
   </head>
 
   <body>
-    <h1>Click button to change data</h1>
-    <div id="display">
-      <h1>Old Data</h1>
-    </div>
-
-    <button id="btn">Click me</button>
+    <h1>write in textfield and see the data below</h1>
+    <label>Username</label>
+    <input id="username" />
+    <div id="display"></div>
   </body>
 </html>
