@@ -8,6 +8,7 @@
       }
       function childClickHandler(){
         console.log("inside Child click Handler");
+        event.stopPropagation();
       }
 
       function domReadyHandler() {

@@ -3,19 +3,35 @@
   <head>
     <script type="application/javascript">
       console.log("before load event attached");
-      function clickHandler() {
-        const displayer = document.getElementById("display");
-        console.log("inside click handler");
-        const data = "<h1>Hello World !</h1>";
-        displayer.innerHTML = data;
+
+      const user={};
+
+      function submitHandler() {
+        event.preventDefault();
+        const form = document.getElementById("myform");
+        const displayer = document.getElementById("display");        
+        displayer.innerHTML=`<h1>${user.username}-${user.age}</h1>`;
       }
 
-      function domReadyHandler() {
-        const btn = document.getElementById("btn");
-        const displayer = document.getElementById("display");
+      
+     function usernameBlurHandler(){
+       const username= document.getElementById("username");
+       user.username=username.value;
+     }
+
+     function ageBlurHandler(){
+       const age= document.getElementById("age");
+       user.age=age.value;
+     }
+     function domReadyHandler() {
         console.log("after dom loaded");
-        btn.addEventListener("click", clickHandler);
-      }
+        const form = document.getElementById("myform");
+        form.addEventListener("submit", submitHandler);
+        const username= document.getElementById("username");
+        username.addEventListener("blur",usernameBlurHandler);
+        const age= document.getElementById("age");
+        age.addEventListener("blur",ageBlurHandler); 
+     }
 
       window.addEventListener("DOMContentLoaded", domReadyHandler);
       console.log("after load event attached");
@@ -25,10 +41,21 @@
 
   <body>
     <h1>Click button to change data</h1>
-    <div id="display">
-      <h1>Old Data</h1>
+    <form id="myform">
+      <label for="username">Username</label>
+      <input id="username" name="username" />
+
+      <br />
+      <label for="age">Age</label>
+      <input id="age" name="age" />
+
+      <br />
+      <button id="btn" type="submit">Click me</button>
+    </form>
+
+    <div id="display">        
+
     </div>
 
-    <button id="btn">Click me</button>
   </body>
 </html>
