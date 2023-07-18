@@ -2,7 +2,7 @@ package com.didemo;
 
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class Square implements Shape{
     private int side;
     public Square(){
