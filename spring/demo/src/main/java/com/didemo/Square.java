@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 //@Component
 public class Square implements Shape{
@@ -23,6 +24,11 @@ public class Square implements Shape{
     @PostConstruct
     public  void  afterInit(){
         System.out.println("Square -afterinit, side="+side);
+    }
+
+    @PreDestroy
+    public void  beforeRemoved(){
+        System.out.println("Square-inside before removed");
     }
 
 }
