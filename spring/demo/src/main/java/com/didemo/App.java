@@ -11,12 +11,14 @@ public class App
     {
         AbstractApplicationContext context=new AnnotationConfigApplicationContext(JavaConfig.class);
         System.out.println("before shape fetched");
-        Shape shape1=context.getBean(Shape.class);
-        Shape shape2=context.getBean(Shape.class);
-        boolean isSame=shape1==shape2;
+       // Shape shape1=context.getBean(Shape.class);
+       // Shape shape2=context.getBean(Shape.class);
+        Shape shape1=context.getBean("square",Square.class);
+        System.out.println("shape fetched="+shape1.getClass().getSimpleName());
+       // boolean isSame=shape1==shape2;
         Canvas canvas=context.getBean(Canvas.class);
         canvas.drawShape();
-        System.out.println("shape1 and shape2 same="+isSame);
+        //System.out.println("shape1 and shape2 same="+isSame);
         System.out.println("before container close");
         context.close();
         System.out.println("after container close");

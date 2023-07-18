@@ -1,6 +1,7 @@
 package com.didemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -16,6 +17,7 @@ public class Canvas {
     public Canvas(){
     }
 
+    @Qualifier("square")
     @Autowired
     public void setShape(Shape shape){
         this.shape=shape;

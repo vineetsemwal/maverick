@@ -1,8 +1,11 @@
 package com.didemo;
 
+import org.springframework.stereotype.Component;
 
+@Component
 public class Circle implements Shape{
     private double radius;
+    public Circle(){}
     public Circle(double radius){
         this.radius=radius;
     }
