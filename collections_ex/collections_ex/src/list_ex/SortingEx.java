@@ -26,7 +26,7 @@ public class SortingEx {
 
     }
 
-    public static class Product implements Comparable<Product>{
+    private static class Product implements Comparable<Product>{
         String name;
         int price;
         public Product(String name, int price){
