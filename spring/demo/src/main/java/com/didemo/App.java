@@ -8,6 +8,7 @@ public class App
     public static void main( String[] args )
     {
         ApplicationContext context=new AnnotationConfigApplicationContext(JavaConfig.class);
+        System.out.println("before shape fetched");
         Shape shape1=context.getBean(Shape.class);
         Shape shape2=context.getBean(Shape.class);
         boolean isSame=shape1==shape2;
