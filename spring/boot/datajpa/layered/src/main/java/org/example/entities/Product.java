@@ -1,15 +1,15 @@
 package org.example.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
+@NamedQuery(name="Product.findByNameInAscending",query="from Product where name=:name order by price")
 @Entity
 public class Product {
     @GeneratedValue
     @Id
     private Long id;
+    @Column(unique = true)
     private String name;
     private double price;
 
