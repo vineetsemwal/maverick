@@ -9,16 +9,17 @@ import javax.annotation.PreDestroy;
 
 @Component
 public class Canvas {
+
     private Shape shape;
-    /*
+
     public Canvas(Shape shape){
         this.shape =shape;
-    }*/
+    }
     public Canvas(){
     }
 
     @Qualifier("square")
-    @Autowired
+    //@Autowired
     public void setShape(Shape shape){
         this.shape=shape;
     }
