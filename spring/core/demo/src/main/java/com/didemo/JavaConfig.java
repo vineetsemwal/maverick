@@ -9,9 +9,10 @@ import org.springframework.context.annotation.PropertySource;
 @ComponentScan("com.didemo")
 @Configuration
 public class JavaConfig {
-
+/*
     @Bean
     public Shape square(){
         return new Square(6);
     }
+*/
 }
