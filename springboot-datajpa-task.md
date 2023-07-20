@@ -1,6 +1,6 @@
-***Use Spring boot and SpringDataJpa**
+***Use Spring boot and SpringDataJpa***
 
-**Use Aop for logging the input arguments, result on methods and exceptions
+**Use Aop for logging the input arguments, result on methods and exceptions**
 
 
 Customer{
