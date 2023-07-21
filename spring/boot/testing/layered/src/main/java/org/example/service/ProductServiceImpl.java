@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
+
 @Service
 public class ProductServiceImpl implements IProductService{
     private IProductDao dao;
@@ -25,7 +26,7 @@ public class ProductServiceImpl implements IProductService{
     @Transactional
     @Override
     public ProductDetails add(AddProductDto requestData) {
-        Product product=new Product(requestData.getName(), requestData.getPrice());
+        Product product=util.convertToProduct(requestData);
         product=dao.save(product);
         ProductDetails desired=util.convertToProductDetails(product);
         return desired;
