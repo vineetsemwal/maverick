@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<h1>Get User Page</h1>
+
+<form method="get" action="/processGetUser">
+
+ <span>Enter id of user</span>
+ <input type="number" name="id">
+ <div th:text="${idErr}"></div>
+
+ <button>Submit</button>
+
+</form>
+
+</body>
+</html>
