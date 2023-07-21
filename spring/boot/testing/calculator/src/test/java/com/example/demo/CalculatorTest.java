@@ -8,14 +8,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
 
-    Calculator calculator;
+    Calculator spy;
 
     Adder adder;
 
     @BeforeEach
     public void setup(){
         adder= mock(Adder.class);
-        calculator=new Calculator(adder);
+        Calculator calculator=new Calculator(adder);
+        spy =spy(calculator);
         System.out.println("inside setup");
     }
 
@@ -25,10 +26,10 @@ class CalculatorTest {
      *   expected :3
      */
     @Test
-    void add_positive_nums() {
+    void sum_positive_nums() {
         when(adder.add(1,2)).thenReturn(3);
         System.out.println("inside app positive");
-        int result=calculator.sum(1,2);
+        int result= spy.sum(1,2);
         assertEquals(3,result);
         verify(adder).add(1,2);
     }
@@ -37,11 +38,21 @@ class CalculatorTest {
      *  Scenario: inputs are negative
      *   inputs  1,2
      *   expected :3
-     *//*
+     */
     @Test
     void add_negative_nums() {
         System.out.println("inside add negative");
-        int result=calculator.sum(-3,-5);
+        when(adder.add(-3,-5)).thenReturn(-8);
+        int result= spy.sum(-3,-5);
         assertEquals(-8,result);
-    }*/
+        verify(adder).add(-3,-5);
+    }
+
+    @Test
+    public void multiplyBy10(){
+        doReturn(50).when(spy).multiply(5,10);
+        int result=spy.multiplyBy10(5);
+        assertEquals(50, result);
+        verify(spy).multiply(5,10);
+    }
 }
