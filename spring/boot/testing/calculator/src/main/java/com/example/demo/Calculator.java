@@ -11,7 +11,6 @@ public class Calculator {
     public int sum(int num1, int num2){
         System.out.println("inside sum");
         int result=adder.add(num1,num2);
-        adder.add(num1,num2);
         return result;
     }
 
