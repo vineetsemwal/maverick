@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import java.util.Objects;
 
 public class AddProductDto {
     @Length(min=2,max=10)
@@ -32,7 +33,20 @@ public class AddProductDto {
     public void setPrice(double price) {
         this.price = price;
     }
+/*
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AddProductDto that = (AddProductDto) o;
+        return Double.compare(that.price, price) == 0 && Objects.equals(name, that.name);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price);
+    }
+*/
     @Override
     public String toString() {
         return "AddProductDto{" +

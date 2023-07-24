@@ -30,7 +30,9 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity<ProductDetails>add(@RequestBody @Valid AddProductDto requestData){
+        System.out.println("request obj="+requestData);
         ProductDetails desired=service.add(requestData);
+        System.out.println("desired="+desired);
         ResponseEntity<ProductDetails>responseEntity=new ResponseEntity<>(desired,HttpStatus.OK);
         return responseEntity;
     }
