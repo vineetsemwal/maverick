@@ -23,7 +23,7 @@ public class ProductController {
 
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<ProductDetails> fetchProductById(@PathVariable @Min(2) long id)throws Exception{
+    public ResponseEntity<ProductDetails> fetchProductById(@PathVariable @Min(1) long id)throws Exception{
         ResponseEntity<ProductDetails>responseEntity=new ResponseEntity<>(service.findById(id), HttpStatus.OK);
         return responseEntity;
     }
