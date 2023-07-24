@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class ProductServiceImplTest {
+class ProductServiceImplUnitTest {
 
     @Mock
     IProductDao repository;
@@ -48,13 +48,14 @@ class ProductServiceImplTest {
     }
 
     @Test
-    public void findById_ProductFound(){
+    public void findById_ProductFound()throws Exception{
         long id=10;
         Product product=mock(Product.class);
         ProductDetails desired=mock(ProductDetails.class);
         Optional<Product>optional=Optional.of(product);
         when(repository.findById(id)).thenReturn(optional);
         when(util.convertToProductDetails(product)).thenReturn(desired);
+        ProductDetails result=service.findById(id);
         verify(repository).findById(id);
 
     }

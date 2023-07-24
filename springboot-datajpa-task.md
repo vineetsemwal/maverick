@@ -2,6 +2,8 @@
 
 **Use Aop for logging the input arguments, result on methods and exceptions**
 
+***Add api endpoints, do validations**
+
 
 Customer{
 id:Long
@@ -50,5 +52,11 @@ Features to be Supported
 
 Do Input Validations, Exception Handling
 
+Api Endpoints
 
+1) Add Customer
+
+2) find all customers by name
+
+3) find all customers with age greater than asked
 

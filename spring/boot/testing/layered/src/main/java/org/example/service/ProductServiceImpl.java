@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -42,4 +43,10 @@ public class ProductServiceImpl implements IProductService{
         ProductDetails desired=util.convertToProductDetails(product);
         return desired;
     }
+
+    @Override
+    public List<Product>findAll(){
+        return dao.findAll();
+    }
+
 }

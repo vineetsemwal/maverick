@@ -16,7 +16,7 @@ public class FrontendUI {
         this.service=service;
     }
 
-    @PostConstruct
+//    @PostConstruct
     public void render(){
         try {
             AddProductDto addSamsung=new AddProductDto("samsung", 20000);
@@ -32,4 +32,5 @@ public class FrontendUI {
             e.printStackTrace();
         }
     }
+
 }

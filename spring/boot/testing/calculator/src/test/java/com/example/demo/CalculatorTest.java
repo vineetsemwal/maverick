@@ -50,7 +50,8 @@ class CalculatorTest {
 
     @Test
     public void multiplyBy10(){
-        doReturn(50).when(spy).multiply(5,10);
+       //when(spy.multiply(5,10)).thenReturn(50);
+         doReturn(50).when(spy).multiply(5,10);
         int result=spy.multiplyBy10(5);
         assertEquals(50, result);
         verify(spy).multiply(5,10);

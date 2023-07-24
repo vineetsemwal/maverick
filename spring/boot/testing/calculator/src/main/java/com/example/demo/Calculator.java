@@ -15,10 +15,12 @@ public class Calculator {
     }
 
     public int multiply(int num1, int num2){
+        System.out.println("inside multiply");
         return num1*num2;
     }
 
     public int multiplyBy10(int num){
+        System.out.println("inside multiplyby10");
         int result=multiply(num,10);
         return result;
     }
