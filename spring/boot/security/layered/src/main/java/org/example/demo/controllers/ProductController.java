@@ -12,7 +12,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.Min;
 
 @Validated
-@RequestMapping("/products")
 @RestController
 public class ProductController {
 
@@ -22,13 +21,14 @@ public class ProductController {
     }
 
 
-    @GetMapping(value = "/{id}")
+    @GetMapping( "/c/products/products{id}")
     public ResponseEntity<ProductDetails> fetchProductById(@PathVariable @Min(2) long id)throws Exception{
         ResponseEntity<ProductDetails>responseEntity=new ResponseEntity<>(service.findById(id), HttpStatus.OK);
         return responseEntity;
     }
 
-    @PostMapping
+
+    @PostMapping("/a/products")
     public ResponseEntity<ProductDetails>add(@RequestBody @Valid AddProductDto requestData){
         ProductDetails desired=service.add(requestData);
         ResponseEntity<ProductDetails>responseEntity=new ResponseEntity<>(desired,HttpStatus.OK);

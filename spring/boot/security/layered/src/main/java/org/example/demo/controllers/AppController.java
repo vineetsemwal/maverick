@@ -12,7 +12,6 @@ public class AppController {
 
     private IUserService service;
 
-    @Autowired
     public AppController(IUserService service){
         this.service=service;
     }
