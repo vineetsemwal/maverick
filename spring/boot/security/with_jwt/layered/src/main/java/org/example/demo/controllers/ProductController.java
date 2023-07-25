@@ -21,8 +21,8 @@ public class ProductController {
     }
 
 
-    @GetMapping( "/c/products/products{id}")
-    public ResponseEntity<ProductDetails> fetchProductById(@PathVariable @Min(2) long id)throws Exception{
+    @GetMapping( "/c/products/{id}")
+    public ResponseEntity<ProductDetails> fetchProductById(@PathVariable @Min(1) long id)throws Exception{
         ResponseEntity<ProductDetails>responseEntity=new ResponseEntity<>(service.findById(id), HttpStatus.OK);
         return responseEntity;
     }
