@@ -25,6 +25,7 @@ public class CustomAuthenticationFilter extends OncePerRequestFilter {
 
     private UserDetailsService userService;
 
+
     @Autowired
     public CustomAuthenticationFilter(UserDetailsService service, TokenUtil tokenUtil){
         this.userService=service;
@@ -37,6 +38,7 @@ public class CustomAuthenticationFilter extends OncePerRequestFilter {
                                     FilterChain filterChain) throws ServletException, IOException {
 
         String token = request.getHeader("Authorization");
+        System.out.println("fetched token="+token);
         try {
             String uri=request.getRequestURI();
             if( uri.startsWith("/p/")||uri.startsWith("/login"))

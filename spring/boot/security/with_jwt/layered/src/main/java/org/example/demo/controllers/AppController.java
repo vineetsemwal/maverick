@@ -26,7 +26,9 @@ public class AppController {
 
     @PostMapping("/login")
     public String login(@RequestBody LoginRequest loginRequest){
-        return  service.login(loginRequest);
+        String token=  service.login(loginRequest);
+        System.out.println("token="+token);
+        return token;
     }
 
 }
