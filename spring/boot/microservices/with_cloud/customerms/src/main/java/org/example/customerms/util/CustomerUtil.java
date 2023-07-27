@@ -42,7 +42,7 @@ public class CustomerUtil {
     ProductDetailsDTO fetchProduct(long id){
         String url=baseProductUrl+"/products/"+id;
         ProductDetailsDTO desired=restTemplate.getForObject(url, ProductDetailsDTO.class);
-         return desired;
+        return desired;
     }
 
 
