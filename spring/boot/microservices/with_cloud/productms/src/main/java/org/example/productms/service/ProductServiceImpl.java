@@ -6,6 +6,8 @@ import org.example.productms.dtos.ProductDetails;
 import org.example.productms.entities.Product;
 import org.example.productms.exceptions.ProductNotFoundException;
 import org.example.productms.util.ProductUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +17,7 @@ import java.util.Optional;
 
 @Service
 public class ProductServiceImpl implements IProductService{
+    private static final Logger Log= LoggerFactory.getLogger(ProductServiceImpl.class);
     private IProductDao dao;
     private ProductUtil util;
 
@@ -45,6 +48,7 @@ public class ProductServiceImpl implements IProductService{
 
     @Override
     public List<ProductDetails> findByIdIn(Collection<Long> ids) {
+        Log.info("inside finbyId of productservice, ids="+ids);
         List<Product>products=dao.findByIdIn(ids);
         return util.toProductDetailsList(products);
     }

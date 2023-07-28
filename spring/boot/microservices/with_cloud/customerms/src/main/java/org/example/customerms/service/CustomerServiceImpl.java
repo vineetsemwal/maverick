@@ -50,6 +50,7 @@ public class CustomerServiceImpl implements ICustomerService {
 
     @Override
     public CustomerDetails buy(BuyRequest request) throws CustomerNotFoundException {
+        Log.info("inside buy customer id="+request.getCustomerId()+","+request.getProductId());
         Customer customer = findById(request.getCustomerId());
         List<Long> products=customer.getBoughtProducts();
         if(products==null){
