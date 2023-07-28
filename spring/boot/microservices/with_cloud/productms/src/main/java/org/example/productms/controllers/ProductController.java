@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Validated
 @RequestMapping("/products")
@@ -17,21 +20,30 @@ import javax.validation.constraints.Min;
 public class ProductController {
 
     private IProductService service;
+
     public ProductController(IProductService service) {
         this.service = service;
     }
 
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<ProductDetails> fetchProductById(@PathVariable @Min(1) long id)throws Exception{
-        ResponseEntity<ProductDetails>responseEntity=new ResponseEntity<>(service.findById(id), HttpStatus.OK);
+    public ResponseEntity<ProductDetails> fetchProductById(@PathVariable @Min(1) long id) throws Exception {
+        ResponseEntity<ProductDetails> responseEntity = new ResponseEntity<>(service.findById(id), HttpStatus.OK);
+        return responseEntity;
+    }
+
+
+    @PostMapping("/by/ids")
+    public ResponseEntity<List<ProductDetails>> fetchProductsById(@RequestBody List<Long> ids) {
+        List<ProductDetails> desired = service.findByIdIn(ids);
+        ResponseEntity<List<ProductDetails>> responseEntity = new ResponseEntity<>(desired, HttpStatus.OK);
         return responseEntity;
     }
 
     @PostMapping
-    public ResponseEntity<ProductDetails>add(@RequestBody @Valid AddProductDto requestData){
-        ProductDetails desired=service.add(requestData);
-        ResponseEntity<ProductDetails>responseEntity=new ResponseEntity<>(desired,HttpStatus.OK);
+    public ResponseEntity<ProductDetails> add(@RequestBody @Valid AddProductDto requestData) {
+        ProductDetails desired = service.add(requestData);
+        ResponseEntity<ProductDetails> responseEntity = new ResponseEntity<>(desired, HttpStatus.OK);
         return responseEntity;
     }
 

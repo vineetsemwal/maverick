@@ -9,6 +9,8 @@ import org.example.productms.util.ProductUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -39,5 +41,11 @@ public class ProductServiceImpl implements IProductService{
         Product product= optional.get();
         ProductDetails desired=util.convertToProductDetails(product);
         return desired;
+    }
+
+    @Override
+    public List<ProductDetails> findByIdIn(Collection<Long> ids) {
+        List<Product>products=dao.findByIdIn(ids);
+        return util.toProductDetailsList(products);
     }
 }

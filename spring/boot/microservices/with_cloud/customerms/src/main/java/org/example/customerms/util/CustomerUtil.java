@@ -6,7 +6,6 @@ import org.example.customerms.entities.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.Collection;
 import java.util.List;
@@ -19,7 +18,10 @@ public class CustomerUtil {
     private String baseProductUrl;
 
     @Autowired
-    public RestTemplate restTemplate;
+    private IProductFetcher productFetcher;
+
+//    @Autowired
+  //  public RestTemplate restTemplate;
 
     public CustomerDetails toCustomerDetails(Customer customer){
         CustomerDetails desired=new CustomerDetails();
@@ -34,16 +36,8 @@ public class CustomerUtil {
     }
 
     public List<ProductDetailsDTO>fetchProducts(Collection<Long>productsId){
-       List<ProductDetailsDTO>list= productsId.stream().map((id)->fetchProduct(id))
-                .collect(Collectors.toList());
+       List<ProductDetailsDTO>list= productFetcher.fetchProductsByIDs(productsId);
         return list;
     }
-
-    ProductDetailsDTO fetchProduct(long id){
-        String url=baseProductUrl+"/products/"+id;
-        ProductDetailsDTO desired=restTemplate.getForObject(url, ProductDetailsDTO.class);
-        return desired;
-    }
-
 
 }
