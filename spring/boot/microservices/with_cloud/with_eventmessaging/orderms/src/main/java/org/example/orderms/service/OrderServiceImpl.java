@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,6 +49,7 @@ public class OrderServiceImpl implements IOrderService{
         util.populateOrder(request,order);
         double orderTotal= request.getUnits()* request.getProductPrice();
         order.setOrderTotal(orderTotal);
+        order.setCreatedDateTime(LocalDateTime.now());
         /*
         ReduceProductUnitsRequest reduceProductUnitsRequest=new ReduceProductUnitsRequest(request.getProductId(),request.getUnits());
         productApiUse.reduceProductRequest(reduceProductUnitsRequest);

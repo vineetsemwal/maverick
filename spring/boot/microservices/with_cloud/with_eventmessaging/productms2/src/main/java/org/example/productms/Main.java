@@ -1,6 +1,7 @@
 package org.example.productms;
 
 import org.example.productms.dtos.CreateOrderRequest;
+import org.example.productms.dtos.OrderDetails;
 import org.example.productms.dtos.ReduceUnitsRequest;
 import org.example.productms.exceptions.ProductNotFoundException;
 import org.example.productms.service.IProductService;
@@ -24,8 +25,8 @@ public class Main {
     }
 
     @Bean
-    public Consumer<CreateOrderRequest> reduceUnits()  {
-        Consumer<CreateOrderRequest> consumer = (orderRequest) -> {
+    public Consumer<OrderDetails> reduceUnits()  {
+        Consumer<OrderDetails> consumer = (orderRequest) -> {
             try {
                 ReduceUnitsRequest reduceUnitsRequest = new ReduceUnitsRequest(orderRequest.getProductId(), orderRequest.getUnits());
                 service.reduceQuantity(reduceUnitsRequest);

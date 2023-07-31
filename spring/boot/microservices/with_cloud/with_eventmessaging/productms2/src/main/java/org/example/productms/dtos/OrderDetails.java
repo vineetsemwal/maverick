@@ -1,4 +1,4 @@
-package org.example.orderms.dto;
+package org.example.productms.dtos;
 
 import lombok.Data;
 

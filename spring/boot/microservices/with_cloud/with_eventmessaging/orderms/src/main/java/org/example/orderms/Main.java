@@ -34,15 +34,23 @@ public class Main {
     }
 
     @Bean
-    public Function<CreateOrderRequest, OrderDetails> createOrder() throws Exception {
-        Function<CreateOrderRequest, OrderDetails> function = (createOrderRequest) -> {
-            OrderDetails details=new OrderDetails();
-            details.setOrderId(1);
-            BeanUtils.copyProperties(createOrderRequest,details);
-            System.out.println("***order details");
-            return details;
+    public Function<OrderDetails, OrderDetails> createOrder() throws Exception {
+        Function<OrderDetails, OrderDetails> function = order -> {
+            System.out.println("***asynchronous order details=" + order);
+            System.out.println("additional asynchronous work could have been done on order received");
+            return order;
         };
         return function;
+    }
+
+    @Bean
+    public Function<String,String>uppercaseFn(){
+     Function<String,String>function=str->{
+         System.out.println("message received from lower topic="+str);
+         System.out.println("message sent to upper topic");
+        return str.toUpperCase();
+     };
+     return function;
     }
 
 }

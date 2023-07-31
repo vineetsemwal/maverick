@@ -18,4 +18,6 @@ public class OrderDetails {
     private int units;
     @Min(1)
     private long customerId;
+    private long productId;
+
 }

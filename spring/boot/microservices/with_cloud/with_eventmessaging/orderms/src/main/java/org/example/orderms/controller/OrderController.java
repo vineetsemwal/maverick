@@ -22,7 +22,7 @@ public class OrderController {
     @PostMapping
     public OrderDetails createOrder(@RequestBody CreateOrderRequest request)throws Exception{
         OrderDetails desired= service.createOrder(request);
-        bridge.send("createOrder-in-0",request);
+        bridge.send("createOrder-in-0",desired);
         return desired;
     }
 

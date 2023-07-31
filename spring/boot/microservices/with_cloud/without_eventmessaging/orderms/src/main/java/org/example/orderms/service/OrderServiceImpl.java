@@ -40,6 +40,7 @@ public class OrderServiceImpl implements IOrderService{
     public OrderDetails createOrder(CreateOrderRequest request) {
         CreatedOrder order=new CreatedOrder();
         util.populateOrder(request,order);
+        order.setCreatedDateTime(LocalDateTime.now());
         double orderTotal= request.getUnits()* request.getProductPrice();
         order.setOrderTotal(orderTotal);
         BuyRequest buyRequest=new BuyRequest(request.getCustomerId(),orderTotal);
