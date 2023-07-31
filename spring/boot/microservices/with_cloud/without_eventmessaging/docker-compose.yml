@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+  
+  rabbitmq:  
+    image: rabbitmq:3.7.8-management  
+    mem_limit: 350m
+    expose:
+      - "5672"
+      - "15672"
+      - "5671"
+    ports:    
+      - 5672:5672    
+      - 5671:5671
+      - 15672:15672  
+    
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    
+    healthcheck:    
+      test: ["CMD", "rabbitmqctl", "status"]    
+      interval: 10s    
+      timeout: 5s    
+      retries: 10
+
+
+  # https://hub.docker.com/r/openzipkin/zipkin
+  zipkin:
+    image: openzipkin/zipkin
+    mem_limit: 512m
+    expose:
+      - "9410"
+      - "9411"
+
+    ports:
+      - "8180:8180"
+      - "8181:8181"
+      - "8182:8182"
+      - "8184:8184"
+    environment:
+    - RABBIT_ADDRESSES=rabbitmq
+    - STORAGE_TYPE=mem
+    - RABBITMQ_DEFAULT_USER=guest
+    - RABBITMQ_DEFAULT_PASS=guest
+    
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
