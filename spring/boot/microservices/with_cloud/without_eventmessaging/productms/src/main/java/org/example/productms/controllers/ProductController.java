@@ -4,6 +4,7 @@ import org.example.productms.dtos.AddProductDto;
 import org.example.productms.dtos.ProductDetails;
 import org.example.productms.dtos.ReduceUnitsRequest;
 import org.example.productms.service.IProductService;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -13,6 +14,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import java.util.List;
 
+@RefreshScope
 @Validated
 @RequestMapping("/products")
 @RestController

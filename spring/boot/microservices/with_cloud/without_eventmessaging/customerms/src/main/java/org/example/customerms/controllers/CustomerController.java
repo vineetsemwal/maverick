@@ -5,8 +5,10 @@ import org.example.customerms.dtos.BuyRequest;
 import org.example.customerms.dtos.CustomerDetails;
 import org.example.customerms.dtos.OrderDetails;
 import org.example.customerms.service.ICustomerService;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
+@RefreshScope
 @RequestMapping("/customers")
 @RestController
 public class CustomerController {

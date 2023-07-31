@@ -3,10 +3,12 @@ package org.example.orderms.controller;
 import org.example.orderms.dto.CreateOrderRequest;
 import org.example.orderms.dto.OrderDetails;
 import org.example.orderms.service.IOrderService;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RefreshScope
 @RequestMapping("/orders")
 @RestController
 public class OrderController {
