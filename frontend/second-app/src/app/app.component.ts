@@ -10,5 +10,10 @@ import {User, Product}  from './user';
 export class AppComponent {
   msg:string="hello angular2";
   user:User=new User("manohar",22);
+
+  getUser(){
+    return this.user;
+  }
+
 }
 
