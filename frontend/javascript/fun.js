@@ -4,4 +4,4 @@ function add(num1,num2){
 }
 var fun=add;
 var result=fun(1,2);
-//console.log("result="+result);
+console.log("result="+result);
