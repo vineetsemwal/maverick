@@ -1,0 +1,20 @@
+<h3>structural directive demo</h3>
+<h3>*ngIf</h3>
+<input [(ngModel)]="num">
+
+<div *ngIf="isEven() else elseBlock ">
+{{num}} is even
+</div>
+
+<!--renders body only and not tag-->
+<ng-template #elseBlock>
+  {{num}} is odd
+</ng-template>
+
+<h3>*ngFor</h3>
+
+<ul>
+  <li *ngFor="let product of products">
+{{product.name}}, {{product.price}}
+  </li>
+</ul>
