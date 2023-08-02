@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { TemplateVariablesComponent } from './template-variables/template-variables.component';
 import { StructuralDirectiveComponent } from './structural-directive/structural-directive.component';
 import { AttributeDirectiveComponent } from './attribute-directive/attribute-directive.component';
+import { PipesDemoComponent } from './pipes-demo/pipes-demo.component';
+import { LengthPipe } from './length.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { AttributeDirectiveComponent } from './attribute-directive/attribute-dir
     TwowayBindingComponent,
     TemplateVariablesComponent,
     StructuralDirectiveComponent,
-    AttributeDirectiveComponent
+    AttributeDirectiveComponent,
+    PipesDemoComponent,
+    LengthPipe
   ],
   imports: [
     BrowserModule,
