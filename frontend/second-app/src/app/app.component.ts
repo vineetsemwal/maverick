@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {User, Product}  from './user';
 
 
 @Component({
@@ -8,12 +7,14 @@ import {User, Product}  from './user';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  msg:string="hello angular2";
-  user:User=new User("manohar",22);
-
-  getUser(){
-    return this.user;
-  }
+ msg:string="Hello Angular2222222";
+ user:User=new User("shivam",21);
+ getMessage(){
+  return "Hi";
+ }
 
 }
-
+class User{
+  constructor(public name:string, public age:number){
+  }
+}
