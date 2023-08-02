@@ -7,13 +7,15 @@ import { PropertyBindingComponent } from './property-binding/property-binding.co
 import { EventBindingComponent } from './event-binding/event-binding.component';
 import { TwowayBindingComponent } from './twoway-binding/twoway-binding.component';
 import { FormsModule } from '@angular/forms';
+import { TemplateVariablesComponent } from './template-variables/template-variables.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PropertyBindingComponent,
     EventBindingComponent,
-    TwowayBindingComponent
+    TwowayBindingComponent,
+    TemplateVariablesComponent
   ],
   imports: [
     BrowserModule,
