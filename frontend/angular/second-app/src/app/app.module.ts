@@ -9,6 +9,7 @@ import { TwowayBindingComponent } from './twoway-binding/twoway-binding.componen
 import { FormsModule } from '@angular/forms';
 import { TemplateVariablesComponent } from './template-variables/template-variables.component';
 import { StructuralDirectiveComponent } from './structural-directive/structural-directive.component';
+import { AttributeDirectiveComponent } from './attribute-directive/attribute-directive.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { StructuralDirectiveComponent } from './structural-directive/structural-
     EventBindingComponent,
     TwowayBindingComponent,
     TemplateVariablesComponent,
-    StructuralDirectiveComponent
+    StructuralDirectiveComponent,
+    AttributeDirectiveComponent
   ],
   imports: [
     BrowserModule,
