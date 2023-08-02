@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { User } from './user';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +13,4 @@ export class AppComponent {
   return "Hi";
  }
 
-}
-class User{
-  constructor(public name:string, public age:number){
-  }
 }
