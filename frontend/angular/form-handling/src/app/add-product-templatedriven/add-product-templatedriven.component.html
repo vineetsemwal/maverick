@@ -1,0 +1,27 @@
+<h1>Add product templatedriven</h1>
+
+<form #myform="ngForm" (ngSubmit)="addProduct(myform)">
+
+  <div>
+
+      <label>Product Name</label>
+
+      <input name="productName"   ngModel  >
+
+  </div>
+
+  <div>
+      <label>Product Price </label>
+
+      <input type="number" name="price"  ngModel >
+
+  </div>
+
+  <button>Add Product</button>
+
+</form>
+
+<div *ngIf="productName">
+<h3>Submitted Details</h3>
+name is {{productName}} ,price is {{price}}
+</div>

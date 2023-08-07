@@ -14,6 +14,7 @@ import { PipesDemoComponent } from './pipes-demo/pipes-demo.component';
 import { LengthPipe } from './length.pipe';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { BigProductDetailsComponent } from './big-product-details/big-product-details.component';
+import { ProductService } from './product.service';
 
 @NgModule({
   declarations: [

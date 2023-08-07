@@ -4,7 +4,3 @@
   }
 }
 
-export class Product{
-
-}
-
