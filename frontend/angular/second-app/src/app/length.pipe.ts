@@ -5,8 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class LengthPipe implements PipeTransform {
 
-  transform(arg:any): number {
-    let str=""+arg;
+  transform(value:any): number {
+    let str=""+value;
     return str.length;
   }
 

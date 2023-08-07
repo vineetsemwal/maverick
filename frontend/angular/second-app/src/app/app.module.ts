@@ -12,6 +12,8 @@ import { StructuralDirectiveComponent } from './structural-directive/structural-
 import { AttributeDirectiveComponent } from './attribute-directive/attribute-directive.component';
 import { PipesDemoComponent } from './pipes-demo/pipes-demo.component';
 import { LengthPipe } from './length.pipe';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { BigProductDetailsComponent } from './big-product-details/big-product-details.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { LengthPipe } from './length.pipe';
     StructuralDirectiveComponent,
     AttributeDirectiveComponent,
     PipesDemoComponent,
-    LengthPipe
+    LengthPipe,
+    ProductDetailsComponent,
+    BigProductDetailsComponent
   ],
   imports: [
     BrowserModule,
