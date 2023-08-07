@@ -1,19 +1,19 @@
-<h1>Add product template driven</h1>
+<h1>add-product-code-driven </h1>
 
-<form #myform="ngForm" (ngSubmit)="addProduct(myform)">
+<form [formGroup]="myForm" (ngSubmit)="addProduct()">
 
   <div>
 
       <label>Product Name</label>
 
-      <input name="productName"   [(ngModel)]="productName"  >
+      <input name="productName"  formControlName="productName"  >
 
   </div>
 
   <div>
       <label>Product Price </label>
 
-      <input type="number" name="price"  [(ngModel)]="price" >
+      <input type="number" name="price" formControlName="price"  >
 
   </div>
 

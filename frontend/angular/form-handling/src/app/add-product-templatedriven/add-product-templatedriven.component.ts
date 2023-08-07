@@ -16,5 +16,8 @@ console.log("form values",form.value);
 let formData=form.value;
 this.productName=formData.productName;
 this.price=formData.price;
+console.log("product"+this.productName+","+this.price);
+
 }
+
 }

@@ -3,18 +3,21 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddProductTemplatedrivenComponent } from './add-product-templatedriven/add-product-templatedriven.component';
+import { AddProductCodeDrivenComponent } from './add-product-code-driven/add-product-code-driven.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddProductTemplatedrivenComponent
+    AddProductTemplatedrivenComponent,
+    AddProductCodeDrivenComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
