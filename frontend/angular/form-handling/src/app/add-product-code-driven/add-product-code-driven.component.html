@@ -10,7 +10,7 @@
 
       <div
       class="text-danger"
-      *ngIf="(nameCtrl.dirty ||nameCtrl.touched)&& nameCtrl.errors?.['required']"
+      *ngIf="!isValidForRequired(nameCtrl)"
     >
       name is required
     </div>
@@ -33,7 +33,7 @@
 
       <div
       class="text-danger"
-      *ngIf="(priceCtrl.dirty ||priceCtrl.touched)&& priceCtrl.errors?.['required']"
+      *ngIf="!isValidForRequired(priceCtrl)"
     >
       Price is required
     </div>

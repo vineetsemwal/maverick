@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup,  Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'add-product-code-driven',
@@ -14,10 +14,10 @@ export class AddProductCodeDrivenComponent {
   myForm: FormGroup;
   constructor(builder: FormBuilder) {
     this.nameCtrl = builder.control('',
-    [Validators.required,Validators.minLength(2)]);
+      [Validators.required, Validators.minLength(2)]);
     this.priceCtrl = builder.control('',
-    [Validators.required,Validators.min(2)]);
-    const controlMappings={
+      [Validators.required, Validators.min(2)]);
+    const controlMappings = {
       productName: this.nameCtrl,
       price: this.priceCtrl
     };
@@ -25,13 +25,25 @@ export class AddProductCodeDrivenComponent {
   }
 
   addProduct(): void {
-    if(!this.myForm.valid){
+    if (!this.myForm.valid) {
       return;
     }
     console.log("inside add product");
-    this.productName=this.nameCtrl.value;
-    this.price=this.priceCtrl.value;
+    this.productName = this.nameCtrl.value;
+    this.price = this.priceCtrl.value;
 
+  }
+
+  isTouchedOrDirty(control: FormControl): boolean {
+    return control.touched || control.dirty;
+  }
+
+  isValidForRequired(control: FormControl) {
+    if (!this.isTouchedOrDirty(control)) {
+      return true;
+    }
+
+    return !control.errors?.['required'];
   }
 
 }
