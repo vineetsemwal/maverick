@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup,  Validators } from '@angular/forms';
 
 @Component({
   selector: 'add-product-code-driven',
@@ -13,8 +13,10 @@ export class AddProductCodeDrivenComponent {
   priceCtrl: FormControl;
   myForm: FormGroup;
   constructor(builder: FormBuilder) {
-    this.nameCtrl = builder.control('');
-    this.priceCtrl = builder.control('');
+    this.nameCtrl = builder.control('',
+    [Validators.required,Validators.minLength(2)]);
+    this.priceCtrl = builder.control('',
+    [Validators.required,Validators.min(2)]);
     const controlMappings={
       productName: this.nameCtrl,
       price: this.priceCtrl
