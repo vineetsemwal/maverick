@@ -40,9 +40,9 @@
 
     <div
       class="text-danger"
-      *ngIf="(priceCtrl.dirty ||priceCtrl.touched)&&priceCtrl.errors?.['min']"
+      *ngIf="(priceCtrl.dirty ||priceCtrl.touched)&&priceCtrl.errors?.['forbiddenPrice']"
     >
-      Minimum value should be 1
+      price is not valid
     </div>
 
 

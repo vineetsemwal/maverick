@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { forbiddenPriceValidator } from '../common/priceValidator';
 
 @Component({
   selector: 'add-product-code-driven',
@@ -16,7 +17,7 @@ export class AddProductCodeDrivenComponent {
     this.nameCtrl = builder.control('',
       [Validators.required, Validators.minLength(2)]);
     this.priceCtrl = builder.control('',
-      [Validators.required, Validators.min(2)]);
+      [Validators.required, forbiddenPriceValidator(0,1000)]);
     const controlMappings = {
       productName: this.nameCtrl,
       price: this.priceCtrl
