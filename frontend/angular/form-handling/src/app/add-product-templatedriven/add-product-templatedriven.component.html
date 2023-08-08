@@ -1,27 +1,64 @@
 <h1>Add product template driven</h1>
 
 <form #myform="ngForm" (ngSubmit)="addProduct(myform)">
-
   <div>
+    <label>Product Name</label>
 
-      <label>Product Name</label>
+    <input
+      name="productName"
+      [(ngModel)]="productName"
+      #nameCtrl="ngModel"
+      required
+      minlength="2"
+    />
+    <div
+      class="text-danger"
+      *ngIf="(nameCtrl.dirty ||nameCtrl.touched)&& nameCtrl.errors?.['required']"
+    >
+      name is required
+    </div>
 
-      <input name="productName"   [(ngModel)]="productName"  >
+    <div
+      class="text-danger"
+      *ngIf="(nameCtrl.dirty ||nameCtrl.touched)&&nameCtrl.errors?.['minlength']"
+    >
+      Minimum length should be 2
+    </div>
 
+    <div></div>
   </div>
 
   <div>
-      <label>Product Price </label>
+    <label>Product Price </label>
 
-      <input type="number" name="price"  [(ngModel)]="price" >
+    <input
+      type="number"
+      name="price"
+      [(ngModel)]="price"
+      #priceCtrl="ngModel"
+      required
+      min="1"
+    />
 
+    <div
+      class="text-danger"
+      *ngIf="(priceCtrl.dirty ||priceCtrl.touched)&& priceCtrl.errors?.['required']"
+    >
+      Price is required
+    </div>
+
+    <div
+      class="text-danger"
+      *ngIf="(priceCtrl.dirty ||priceCtrl.touched)&&priceCtrl.errors?.['min']"
+    >
+      Minimum value should be 1
+    </div>
   </div>
 
   <button>Add Product</button>
-
 </form>
 
 <div *ngIf="productName">
-<h3>Submitted Details</h3>
-name is {{productName}} ,price is {{price}}
+  <h3>Submitted Details</h3>
+  name is {{ productName }} ,price is {{ price }}
 </div>
