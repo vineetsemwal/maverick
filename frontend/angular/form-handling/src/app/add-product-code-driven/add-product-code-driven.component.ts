@@ -25,6 +25,9 @@ export class AddProductCodeDrivenComponent {
   }
 
   addProduct(): void {
+    if(!this.myForm.valid){
+      return;
+    }
     console.log("inside add product");
     this.productName=this.nameCtrl.value;
     this.price=this.priceCtrl.value;

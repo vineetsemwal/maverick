@@ -12,7 +12,10 @@ price:number|undefined;
 output:string|undefined;
 
 addProduct(form:any){
-console.log("form values",form.value);
+  if(!form.valid){
+    return;
+  }
+  console.log("form values",form.value);
 let formData=form.value;
 this.productName=formData.productName;
 this.price=formData.price;
