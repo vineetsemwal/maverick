@@ -9,7 +9,7 @@ export function forbiddenPriceValidator(min: number, max: number):ValidatorFn {
   }
 }
 
-
+/*
 export class ForbiddenPriceValidatorDirective implements Validator{
   validate(control: AbstractControl): ValidationErrors | null {
       console.log("inside ForbiddenAgeValidatorDirective" );
@@ -19,4 +19,4 @@ export class ForbiddenPriceValidatorDirective implements Validator{
   }
 
 
-}
+}*/
