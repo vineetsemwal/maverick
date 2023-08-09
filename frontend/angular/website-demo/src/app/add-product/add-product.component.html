@@ -1,0 +1,28 @@
+<h1>add product </h1>
+
+<form [formGroup]="myForm" (ngSubmit)="addProduct()">
+
+  <div>
+
+      <label>Product Name</label>
+
+      <input name="productName"  formControlName="productName"  >
+
+  </div>
+
+  <div>
+      <label>Product Price </label>
+
+      <input type="number" name="price" formControlName="price"  >
+
+
+  </div>
+
+  <button class="btn btn-primary">Add Product</button>
+
+</form>
+
+<div *ngIf="productName">
+<h3>Submitted Details</h3>
+name is {{productName}} ,price is {{price}}
+</div>

@@ -8,6 +8,9 @@ import { HomeComponent } from './home/home.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ListProductsComponent } from './list-products/list-products.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,15 @@ import { ListProductsComponent } from './list-products/list-products.component';
     HomeComponent,
     ContactusComponent,
     ProductDetailsComponent,
-    ListProductsComponent
+    ListProductsComponent,
+    AddProductComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

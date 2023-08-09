@@ -5,6 +5,10 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { AboutComponent } from './about/about.component';
 import { ListProductsComponent } from './list-products/list-products.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { FormGuard } from './formGuard';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { UrlGuard } from './urlguard';
 
 const routes: Routes = [
   {path:"",redirectTo:"home",pathMatch:"full"}
@@ -23,7 +27,17 @@ path:"about", component:AboutComponent
 },
 
 {
-  path:"product/:productName", component:ProductDetailsComponent
+  path:"product/:productName", component:ProductDetailsComponent,
+  canActivate:[UrlGuard]
+},
+
+{
+  path:"add-product",component:AddProductComponent,
+  canDeactivate:[FormGuard]
+},
+
+{
+  path:"not-found", component:NotFoundComponent
 }
 
 ];
