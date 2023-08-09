@@ -1,0 +1,63 @@
+<h1>add-product-code-driven </h1>
+
+<form [formGroup]="myForm" (ngSubmit)="addProduct()">
+
+  <div>
+
+      <label>Product Name</label>
+
+      <input name="productName"  formControlName="productName"  >
+
+      <div
+      class="text-danger"
+      *ngIf="!isValidForRequired(nameCtrl)"
+    >
+      name is required
+    </div>
+
+    <div
+      class="text-danger"
+      *ngIf="(nameCtrl.dirty ||nameCtrl.touched)&&nameCtrl.errors?.['minlength']"
+    >
+      Minimum length should be 2
+    </div>
+
+
+  </div>
+
+  <div>
+      <label>Product Price </label>
+
+      <input type="number" name="price" formControlName="price"  >
+
+
+      <div
+      class="text-danger"
+      *ngIf="!isValidForRequired(priceCtrl)"
+    >
+      Price is required
+    </div>
+
+    <div
+      class="text-danger"
+      *ngIf="(priceCtrl.dirty ||priceCtrl.touched)&&priceCtrl.errors?.['forbiddenPrice']"
+    >
+      price is not valid
+    </div>
+
+
+  </div>
+
+  <button>Add Product</button>
+
+</form>
+
+<div *ngIf="createdProduct">
+<h3>Submitted Details</h3>
+id is {{createdProduct.id}}
+name is {{createdProduct.name}} ,price is {{createdProduct.price}}
+</div>
+
+<div *ngIf="errMsg">
+Error is {{errMsg}}
+</div>

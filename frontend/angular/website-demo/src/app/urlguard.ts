@@ -12,7 +12,7 @@ export class UrlGuard implements CanActivate{
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
       const productName:any= route.paramMap.get("productName");
-      console.log("inside urlguard canactivate id",productName);
+      console.log("inside urlguard canactivate productname",productName);
 
      const foundProducts:string[]= supportedProducts.filter(
       product=>product==productName);

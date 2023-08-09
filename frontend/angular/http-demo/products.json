@@ -1,0 +1,29 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "samsung",
+      "price": 20000
+    },
+    {
+      "id": "2",
+      "name": "motorola",
+      "price": 30000
+    },
+    {
+      "id": "3",
+      "name": "iphone",
+      "price": 90000
+    },
+    {
+      "id": "4",
+      "name": "lg",
+      "price": 40000
+    },
+    {
+      "name": "acer",
+      "price": 40000,
+      "id": "JjqJ2_Q"
+    }
+  ]
+}
