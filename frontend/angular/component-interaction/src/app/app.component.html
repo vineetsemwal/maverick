@@ -5,7 +5,9 @@
 <div>
 Input user enter in parent : {{userInput}}
 
-<child parentInput={{userInput}}></child>
+<h3>{{receivedMsg}}</h3>
+
+<child parentInput={{userInput}} (childEvent)="messageReceivedFromChild($event)"></child>
 
 
 </div>

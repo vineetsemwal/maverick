@@ -9,5 +9,12 @@ export class AppComponent {
 
   title = 'component-interaction';
   userInput:string|undefined;
-  
+  receivedMsg:string="";
+
+  messageReceivedFromChild(message:string){
+    console.log("message received in parent");
+    console.log("event=",message);
+    this.receivedMsg=message;
+
+  }
 }

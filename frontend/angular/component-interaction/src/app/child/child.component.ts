@@ -18,11 +18,22 @@ import { AfterContentInit, AfterViewInit, Component, ContentChild, DoCheck, Even
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.css']
 })
-export class ChildComponent  {
+export class ChildComponent {
 
+  counter: number = 0;
   @Input() parentInput: string | undefined;
 
+  @Output() childEvent: EventEmitter<string> = new EventEmitter();
+  sentMessage:string="";
 
+  increment() {
+    ++this.counter;
+    const msg = "message from child counter=" + this.counter;
+    this.childEvent.emit(msg);
+    this.sentMessage=msg;
+    console.log("message sent=" + msg);
+
+  }
 
 
 }
