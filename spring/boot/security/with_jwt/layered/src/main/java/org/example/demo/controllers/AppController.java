@@ -21,7 +21,7 @@ public class AppController {
         return "You are successfully logged in";
     }
 
-    @PostMapping("/tokens/create")
+    @PostMapping("/login")
     public String createToken(@RequestBody LoginRequest loginRequest){
         String token=  service.generateTokenAfterCredentialsCheck(loginRequest);
         System.out.println("token="+token);

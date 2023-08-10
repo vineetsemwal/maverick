@@ -70,7 +70,8 @@ public class AppSecurityConfig {
     }
 
     public PasswordEncoder newPasswordEncoder(){
-        return new BCryptPasswordEncoder();// use in operation/production
+       // return  NoOpPasswordEncoder.getInstance();// use in operation/production
+        return new BCryptPasswordEncoder();
     }
 
 /*
