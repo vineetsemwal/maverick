@@ -5,9 +5,16 @@ import org.example.demo.util.CustomAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsPasswordService;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -16,9 +23,29 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 @Configuration
 public class AppSecurityConfig {
-
+    @Autowired
+    private UserDetailsService userService;
+    @Autowired
+    private UserDetailsPasswordService userPasswordService;
     @Autowired
     private CustomAuthenticationFilter filter;
+
+    @Autowired
+    protected AuthenticationProvider authenticationProvider(){
+        DaoAuthenticationProvider provider= new DaoAuthenticationProvider();
+        provider.setUserDetailsService(userService);
+        provider.setUserDetailsPasswordService(userPasswordService);
+        provider.setPasswordEncoder(newPasswordEncoder());
+        return provider;
+    }
+
+    @Bean
+    public AuthenticationManager authManager(HttpSecurity http) throws Exception {
+        AuthenticationManagerBuilder authenticationManagerBuilder =
+                http.getSharedObject(AuthenticationManagerBuilder.class);
+        authenticationManagerBuilder.authenticationProvider(authenticationProvider());
+        return authenticationManagerBuilder.build();
+    }
 
 
     @Bean
@@ -31,7 +58,6 @@ public class AppSecurityConfig {
                 .antMatchers("/c/**").hasAnyRole("CUSTOMER","ADMIN")
                 .antMatchers("/a/**").hasAnyRole("ADMIN")
                 .and()
-
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
@@ -40,8 +66,11 @@ public class AppSecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder(){
-        //return new BCryptPasswordEncoder();// use in operation/production
-        return NoOpPasswordEncoder.getInstance();
+        return newPasswordEncoder();
+    }
+
+    public PasswordEncoder newPasswordEncoder(){
+        return new BCryptPasswordEncoder();// use in operation/production
     }
 
 /*

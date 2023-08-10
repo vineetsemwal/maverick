@@ -17,7 +17,7 @@ import java.util.Set;
 @Component
 public class TokenUtil {
     private static final Key KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-    public String encode(String username, Set<String> roles) {
+    public String encode(String username) {
         long currentMillis=System.currentTimeMillis();
         long expiryMillis=currentMillis+(60*60*1000*24);
         Date expiryDate=new Date(expiryMillis);

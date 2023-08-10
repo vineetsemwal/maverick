@@ -2,7 +2,6 @@ package org.example.demo.controllers;
 
 import org.example.demo.dtos.LoginRequest;
 import org.example.demo.service.IUserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,11 +21,9 @@ public class AppController {
         return "You are successfully logged in";
     }
 
-
-
-    @PostMapping("/login")
-    public String login(@RequestBody LoginRequest loginRequest){
-        String token=  service.login(loginRequest);
+    @PostMapping("/tokens/create")
+    public String createToken(@RequestBody LoginRequest loginRequest){
+        String token=  service.generateTokenAfterCredentialsCheck(loginRequest);
         System.out.println("token="+token);
         return token;
     }

@@ -3,6 +3,7 @@ package org.example.demo.util;
 import org.example.demo.exceptions.InvalidTokenException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,6 +26,8 @@ public class CustomAuthenticationFilter extends OncePerRequestFilter {
 
     private UserDetailsService userService;
 
+    //@Autowired
+   // private AuthenticationProvider authProvider;
 
     @Autowired
     public CustomAuthenticationFilter(UserDetailsService service, TokenUtil tokenUtil){
@@ -41,8 +44,10 @@ public class CustomAuthenticationFilter extends OncePerRequestFilter {
         System.out.println("fetched token="+token);
         try {
             String uri=request.getRequestURI();
+            System.out.println("request parameter="+request.getParameter("username")+" uri="+uri+" method="+request.getMethod());
             if( uri.startsWith("/p/")||uri.startsWith("/login"))
             {
+
                 filterChain.doFilter(request, response);
                 return;
             }
