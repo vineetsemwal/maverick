@@ -8,6 +8,10 @@ Input user enter in parent : {{userInput}}
 <h3>{{receivedMsg}}</h3>
 
 <child parentInput={{userInput}} (childEvent)="messageReceivedFromChild($event)"></child>
-
+<br>
+<a routerLink="/child-two">Visit child two</a>
+<br><br>
+<a routerLink="/child-three">Visit Child three</a>
 
 </div>
+<router-outlet></router-outlet>

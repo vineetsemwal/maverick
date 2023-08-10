@@ -18,13 +18,16 @@ import { AfterContentInit, AfterViewInit, Component, ContentChild, DoCheck, Even
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.css']
 })
-export class ChildComponent {
-
+export class ChildComponent implements OnInit,OnDestroy,OnChanges{
   counter: number = 0;
   @Input() parentInput: string | undefined;
 
   @Output() childEvent: EventEmitter<string> = new EventEmitter();
   sentMessage:string="";
+  constructor(){
+    console.log("inside child constructor");
+
+  }
 
   increment() {
     ++this.counter;
@@ -32,8 +35,24 @@ export class ChildComponent {
     this.childEvent.emit(msg);
     this.sentMessage=msg;
     console.log("message sent=" + msg);
-
   }
 
+ngOnInit(): void {
+    console.log("inside Child's ngOnInit");
+}
+
+ngOnDestroy(): void {
+    console.log("inside Child's ondestroy");
+}
+
+ngOnChanges(changes: SimpleChanges): void {
+    console.log("inside child's ngonchanges");
+   console.log("changes",changes);
+   const previous=changes["parentInput"].previousValue;
+   const currentVal=changes["parentInput"].currentValue;
+   console.log("previous="+previous);
+   console.log("current="+currentVal);
+
+}
 
 }
