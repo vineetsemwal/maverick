@@ -1,0 +1,11 @@
+<h1>Parent</h1>
+
+<input [(ngModel)]="userInput" name="userInput">
+<br>
+<div>
+Input user enter in parent : {{userInput}}
+
+<child parentInput={{userInput}}></child>
+
+
+</div>
