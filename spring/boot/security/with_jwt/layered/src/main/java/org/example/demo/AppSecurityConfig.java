@@ -30,12 +30,12 @@ public class AppSecurityConfig {
     @Autowired
     private CustomAuthenticationFilter filter;
 
-    @Autowired
+    @Bean
     protected AuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider provider= new DaoAuthenticationProvider();
         provider.setUserDetailsService(userService);
         provider.setUserDetailsPasswordService(userPasswordService);
-        provider.setPasswordEncoder(newPasswordEncoder());
+        provider.setPasswordEncoder(passwordEncoder());
         return provider;
     }
 
@@ -66,10 +66,6 @@ public class AppSecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder(){
-        return newPasswordEncoder();
-    }
-
-    public PasswordEncoder newPasswordEncoder(){
        // return  NoOpPasswordEncoder.getInstance();// use in operation/production
         return new BCryptPasswordEncoder();
     }
