@@ -18,7 +18,8 @@ import { AfterContentInit, AfterViewInit, Component, ContentChild, DoCheck, Even
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.css']
 })
-export class ChildComponent implements OnInit,OnDestroy,OnChanges{
+export class ChildComponent implements OnInit,OnDestroy,
+OnChanges, AfterViewInit{
   counter: number = 0;
   @Input() parentInput: string | undefined;
 
@@ -27,6 +28,9 @@ export class ChildComponent implements OnInit,OnDestroy,OnChanges{
   constructor(){
     console.log("inside child constructor");
 
+  }
+  ngAfterViewInit(): void {
+    throw new Error('Method not implemented.');
   }
 
   increment() {
