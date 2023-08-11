@@ -5,6 +5,7 @@ export class Product {
   constructor(id:number,name: string, price: number) {
     this._price = price;
     this._name = name;
+    this._id=id;
   }
 
   get price(): number {

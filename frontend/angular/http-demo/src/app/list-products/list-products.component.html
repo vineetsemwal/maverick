@@ -1,7 +1,9 @@
 <h1>List Products</h1>
 
 <ul>
-<li *ngFor="let product of products">
-{{product.id}}, {{product.name}},{{product.price}}
+<li *ngFor="let product of products; let index=index">
+  <div id="{{'id-'+product.id}}" >{{product.id}}</div>
+  <div id="{{'name-'+product.id}}">{{product.name}}</div>
+  <div id="{{'price-'+product.id}}">{{product.price}}</div>
 </li>
 </ul>
