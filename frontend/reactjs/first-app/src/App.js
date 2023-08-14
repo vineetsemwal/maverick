@@ -1,7 +1,8 @@
 import { Component } from "react";
 import "./App.css";
 import UserDetailsComponent from "./UserDetailsComponent";
-import Counter from "./Counter";
+import Counter2 from "./Counter2";
+import Counter1 from "./Counter1";
 /*
 React.createElement(
   'div',{},
@@ -26,9 +27,7 @@ class App extends Component {
         {this.users.map((userArg) => (
           <UserDetailsComponent user={userArg} dept="IT" key={userArg.name} />
         ))}
-
-
-<Counter/>
+        <Counter1 />
       </div>
     );
   }
