@@ -8,7 +8,8 @@ import { Component } from "react";
 
 
   render() {
-    const userObj=this.props.user;
+  const userObj=this.props.user;
+    
     return (
       <div>
         <h1>User Details Component</h1>

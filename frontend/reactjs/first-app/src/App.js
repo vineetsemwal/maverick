@@ -1,6 +1,7 @@
 import { Component } from "react";
 import "./App.css";
 import UserDetailsComponent from "./UserDetailsComponent";
+import Counter from "./Counter";
 /*
 React.createElement(
   'div',{},
@@ -8,10 +9,11 @@ React.createElement(
 */
 class App extends Component {
   title = "hello";
-
-   user1={name:"mani", age:26};
-   user2={name:"manju", age:23};
-
+  users = [
+    { name: "mani", age: 26 },
+    { name: "manju", age: 23 },
+    { name: "ramesh", age: 24 },
+  ];
   giveTitle() {
     return "Welcome";
   }
@@ -21,9 +23,10 @@ class App extends Component {
       <div>
         <h1>Main Title is {this.title} </h1>
         Title is {this.giveTitle()}
-
-        <UserDetailsComponent user={this.user1} dept="IT" />
-        <UserDetailsComponent user={this.user2} dept="HR"/>
+        {this.users.map((userArg) => (
+          <UserDetailsComponent user={userArg} dept="IT" key={userArg.name} />
+        ))}
+        <Counter />
       </div>
     );
   }
