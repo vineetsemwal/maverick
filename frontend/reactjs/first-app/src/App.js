@@ -26,7 +26,9 @@ class App extends Component {
         {this.users.map((userArg) => (
           <UserDetailsComponent user={userArg} dept="IT" key={userArg.name} />
         ))}
-        <Counter />
+
+
+<Counter/>
       </div>
     );
   }
