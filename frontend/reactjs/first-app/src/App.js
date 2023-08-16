@@ -6,6 +6,9 @@ import Counter1 from "./Counter1";
 import ParentCounter from "./callbackpassed/ParentCounter";
 import UserDetailsFunctional from "./functional/UserDetailsFunctional";
 import CounterFunctional from "./functional/CounterFunctional";
+import { UserProvider } from "./functional/UserContext";
+import ContextDemo from "./functional/ContextDemo";
+import ParentContextDemo from "./functional/ParentContextDemo";
 /*
 React.createElement(
   'div',{},
@@ -27,20 +30,19 @@ class App extends Component {
       <div>
         <h1>Main Title is {this.title} </h1>
         Title is {this.giveTitle()}
-{
-     /* <UserDetailsComponent user={this.users[0]} />
+        {/* <UserDetailsComponent user={this.users[0]} />
 
         {this.users.map((userArg,index) => (
           <UserDetailsComponent user={userArg} dept="IT" key={index} />
         ))}
 
        <ParentCounter/>
-        */ }
-
-<UserDetailsFunctional user={this.users[0]} dept="IT"/>
-
-<CounterFunctional />
-
+        */}
+        <UserDetailsFunctional user={this.users[0]} dept="IT" />
+        <CounterFunctional />
+        <UserProvider value={this.users[0]}>
+          <ParentContextDemo/>
+        </UserProvider>
       </div>
     );
   }
