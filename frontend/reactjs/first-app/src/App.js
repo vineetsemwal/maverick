@@ -9,6 +9,9 @@ import CounterFunctional from "./functional/CounterFunctional";
 import { UserProvider } from "./functional/UserContext";
 import ContextDemo from "./functional/ContextDemo";
 import ParentContextDemo from "./functional/ParentContextDemo";
+import ConditionalRender1 from "./functional/ConditionalRender1";
+import ConditionalRender2 from "./functional/ConditionalRender2";
+import ConditionalRender3 from "./functional/ConditionalRender3";
 /*
 React.createElement(
   'div',{},
@@ -43,6 +46,8 @@ class App extends Component {
         <UserProvider value={this.users[0]}>
           <ParentContextDemo/>
         </UserProvider>
+
+        <ConditionalRender3/>
       </div>
     );
   }
