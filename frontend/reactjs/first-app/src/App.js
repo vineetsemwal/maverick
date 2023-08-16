@@ -3,6 +3,7 @@ import "./App.css";
 import UserDetailsComponent from "./UserDetailsComponent";
 import Counter2 from "./Counter2";
 import Counter1 from "./Counter1";
+import ParentCounter from "./callbackpassed/ParentCounter";
 /*
 React.createElement(
   'div',{},
@@ -24,10 +25,15 @@ class App extends Component {
       <div>
         <h1>Main Title is {this.title} </h1>
         Title is {this.giveTitle()}
-        {this.users.map((userArg) => (
-          <UserDetailsComponent user={userArg} dept="IT" key={userArg.name} />
+
+      <UserDetailsComponent user={this.users[0]} />
+
+        {this.users.map((userArg,index) => (
+          <UserDetailsComponent user={userArg} dept="IT" key={index} />
         ))}
-        <Counter1 />
+
+       <ParentCounter/>
+
       </div>
     );
   }

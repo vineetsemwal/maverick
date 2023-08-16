@@ -23,6 +23,7 @@ class Counter2 extends Component {
           this.increment();
           this.increment();
           this.increment();
+          this.increment();
           
          }}>Increment</button>
       </div>
