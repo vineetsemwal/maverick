@@ -4,6 +4,7 @@ import UserDetailsComponent from "./UserDetailsComponent";
 import Counter2 from "./Counter2";
 import Counter1 from "./Counter1";
 import ParentCounter from "./callbackpassed/ParentCounter";
+import UserDetailsFunctional from "./functional/UserDetailsFunctional";
 /*
 React.createElement(
   'div',{},
@@ -33,6 +34,9 @@ class App extends Component {
         ))}
 
        <ParentCounter/>
+
+
+<UserDetailsFunctional user={this.users[0]} dept="IT"/>
 
       </div>
     );
