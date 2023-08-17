@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Contacts from "./Contacts";
 import Products from "./Products";
+import Navigationbar from "./Navigationbar";
 
 /*
 React.createElement(
@@ -16,17 +17,19 @@ class App extends Component {
     <div>
 <Router>
 
-<Link to="/" >Home</Link>
-<br/>
-<Link to="/contacts" >Contacts</Link>
-<br/>
-<Link to="/products" >Products</Link>
+<Navigationbar/>
+<div className="container" style={{'margin-top':"50px"}}>
+  <div className="row">
+  <div className="col-md-8" >
 <Routes>
   <Route path="/" element={<Home/>}/>
   <Route path="/contacts" element={<Contacts/>}/>
   <Route path="/products" element={<Products/>}/>
-
 </Routes>
+</div>
+</div>
+
+</div>
 </Router>
 
     </div>
