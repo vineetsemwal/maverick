@@ -10,6 +10,11 @@ class ProductService{
   return promise;
 }    
 
+addProduct(requestData){
+  const promise=axios.post(this.baseUrl,requestData);
+  return promise;
+}
+
 }
 
 const productService=new ProductService();

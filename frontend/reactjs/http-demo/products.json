@@ -14,6 +14,21 @@
       "id": "3",
       "name": "iphone",
       "price": 1000000
+    },
+    {
+      "name": "spices",
+      "price": "10000",
+      "id": "NU38hk4"
+    },
+    {
+      "name": "samsung",
+      "price": "10000",
+      "id": "NKlZ0Lr"
+    },
+    {
+      "name": "charcoal",
+      "price": "20000",
+      "id": "djZzWaR"
     }
   ]
 }
